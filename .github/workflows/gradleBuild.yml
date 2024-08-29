@@ -56,6 +56,3 @@ jobs:
         java-version: '22'
         distribution: 'temurin'
 
-    # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
-    - name: Generate and submit dependency graph
-      uses: gradle/actions/dependency-submission@v4.0.0
