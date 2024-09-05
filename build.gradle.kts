@@ -19,6 +19,8 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.projectlombok:lombok:1.18.22")
+	implementation("org.projectlombok:lombok:1.18.22")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
