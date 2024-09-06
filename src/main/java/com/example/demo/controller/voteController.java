@@ -24,30 +24,14 @@ public class voteController {
 
     @PostMapping("/vote")
     public ResponseEntity<String> vote(@RequestParam String username, @RequestParam int pollId, @RequestParam int voteOption){
-        voteOption++;
-        User user = null;
-        Poll poll = null;
+        voteOption--;
 
-        for (User u : pollManager.getHashmap().keySet()) {
-            if (u.getUsername().equals(username)) {
-                user = u;
-                break;
-            }
-        }
-
+        User user = findUserByUsername(username);
         if (user == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
 
-        for (List<Poll> polls : pollManager.getHashmap().values()) {
-            for (Poll p : polls) {
-                if (p.getId() == pollId) {
-                    poll = p;
-                    break;
-                }
-            }
-        }
-
+        Poll poll = findPollById(pollId);
         if (poll == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Poll not found");
         }
@@ -64,6 +48,7 @@ public class voteController {
             votes.add(vote);
             voteOption1.setVotes(votes);
         }
+
         return ResponseEntity.ok("Vote registered");
 
     }
@@ -80,17 +65,7 @@ public class voteController {
 
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteVote(@RequestParam String username, @RequestParam int pollId, @RequestParam int voteOption ){
-
-        Poll poll = null;
-        for (List<Poll> polls : pollManager.getHashmap().values()) {
-            for (Poll p : polls) {
-                if (p.getId() == pollId) {
-                    poll = p;
-                    break;
-                }
-            }
-        }
-
+        Poll poll = findPollById(pollId);
         if (poll == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Poll not found");
         }
@@ -119,6 +94,35 @@ public class voteController {
 
         return ResponseEntity.ok("Vote deleted");
     }
+
+    private User findUserByUsername(String username) {
+        return pollManager.getHashmap().keySet().stream()
+                .filter(u -> u.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
+    }
+
+
+    private Poll findPollById(int pollId) {
+        return pollManager.getHashmap().values().stream()
+                .flatMap(List::stream)
+                .filter(p -> p.getId() == pollId)
+                .findFirst()
+                .orElse(null);
+    }
+
+
+    private void addVote(VoteOption voteOption, User user) {
+        Vote vote = new Vote();
+        vote.setVoter(user);
+        List<Vote> votes = voteOption.getVotes();
+        if (votes == null) {
+            votes = new ArrayList<>();
+            voteOption.setVotes(votes);
+        }
+        votes.add(vote);
+    }
+
 
 
 }

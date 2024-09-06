@@ -1,6 +1,7 @@
 package com.example.demo.domains;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ public class User {
 
     private String username;
     private String email;
+    @JsonManagedReference
     private List<Poll> polls;
     private List<Vote> votes; 
 

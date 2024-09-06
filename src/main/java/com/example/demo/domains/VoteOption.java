@@ -1,5 +1,6 @@
 package com.example.demo.domains;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,9 +10,9 @@ import java.util.List;
 @Setter
 public class VoteOption {
 
-    private int id;
     private String caption;
     private int presentationOrder;
+    @JsonBackReference
     private Poll poll;
     private List<Vote> votes;
 

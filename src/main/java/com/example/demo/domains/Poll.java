@@ -1,5 +1,7 @@
 package com.example.demo.domains;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.Instant;
@@ -12,7 +14,9 @@ public class Poll {
     private String question;
     private Instant publishedAt;
     private Instant validUntil;
+    @JsonBackReference
     private User creator;
+    @JsonManagedReference
     private List<VoteOption> options;
 
 
