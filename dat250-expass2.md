@@ -50,6 +50,9 @@ and @JsonIgnore in the Poll, User and VoteOption domains. An example is VoteOpti
 contains a list of VoteOptions, so I used @JsonBackReference for the Poll in VoteOption and @JsonManagedReference for the
 list of VoteOption's in Poll.
 
+I tried to use @Getters and @Setters in the beans but for some reason it didn't work, so i auto-generated the getters 
+and setters with intelliJ's built in functionality.
+
 ### Step 3
 For this step, I designed test scenarios in Bruno. I did this by identifying which functionality I want and then
 making requests for testing later. 
