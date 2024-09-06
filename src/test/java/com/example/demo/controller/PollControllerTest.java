@@ -37,7 +37,7 @@ public class PollControllerTest {
 
     @Test
     public void testCreatePoll() {
-        // Ensure user is created first
+
         String username = "user1";
         createUser(username);
 

@@ -62,6 +62,22 @@ public class voteController {
         return ResponseEntity.ok("Vote changed");
     }
 
+    @GetMapping("/getAll") // not working
+    public List<Vote> getAllVotes(){
+        List<Vote> votes = new ArrayList<>();
+        for (User u : pollManager.getHashmap().keySet()){
+            if (u.getVotes() != null) {
+                votes.addAll(u.getVotes());
+            }
+        }
+        if (!votes.isEmpty()){
+            return votes;
+        }
+        else{
+            return new ArrayList<>();
+        }
+    }
+
 
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteVote(@RequestParam String username, @RequestParam int pollId, @RequestParam int voteOption ){
@@ -112,16 +128,6 @@ public class voteController {
     }
 
 
-    private void addVote(VoteOption voteOption, User user) {
-        Vote vote = new Vote();
-        vote.setVoter(user);
-        List<Vote> votes = voteOption.getVotes();
-        if (votes == null) {
-            votes = new ArrayList<>();
-            voteOption.setVotes(votes);
-        }
-        votes.add(vote);
-    }
 
 
 
