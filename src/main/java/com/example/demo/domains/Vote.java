@@ -2,6 +2,7 @@ package com.example.demo.domains;
 
 import java.time.Instant;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
