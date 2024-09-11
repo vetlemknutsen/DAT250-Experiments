@@ -6,6 +6,8 @@ This was a fun experiment and I learnt a lot about connecting backend and fronte
 FYI - The instructions mentions in the end: a link to your code for experiments 1-2 above.
 I don't really think it makes sense to add links to step 1? So I added links where I found it useful.
 
+Link to repo startpage: [home](https://github.com/vetlemknutsen/DAT250-Experiments/tree/main)
+
 ### Step 1 
 Node.js and NPM were already installed.
 I created the frontend project with
