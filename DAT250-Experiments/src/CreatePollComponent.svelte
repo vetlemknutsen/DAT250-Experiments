@@ -69,7 +69,7 @@
 
         <button type="button" on:click={addOption}>Add Another Option</button>
 
-        <button type="submit" on:click={() => createPoll()}>Submit</button>
+        <button type="submit">Submit</button>
 
         <button class="button" on:click={() => navigate("/polls")}>Back</button>
         <p>{responseMessage}</p>
