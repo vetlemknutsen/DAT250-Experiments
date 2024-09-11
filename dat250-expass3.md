@@ -4,7 +4,7 @@ In this report i will go through the different steps to explain what i have done
 This was a fun experiment and I learnt a lot about connecting backend and frontend.
 
 FYI - The instructions mentions in the end: a link to your code for experiments 1-2 above.
-I don't really think it makes sense to add links to experiment 1? So I hadded links where I found it useful.
+I don't really think it makes sense to add links to step 1? So I added links where I found it useful.
 
 ### Step 1 
 Node.js and NPM were already installed.
