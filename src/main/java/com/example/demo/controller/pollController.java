@@ -8,10 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/v1/poll")
@@ -41,7 +40,11 @@ public class pollController {
 
     @GetMapping("/getAll")
     public Collection<List<Poll>> getPolls(){
-        return pollManager.getHashmap().values();
+        Collection<List<Poll>> polls = pollManager.getHashmap().values();
+
+        return polls.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
     }
 
     @DeleteMapping("/delete")

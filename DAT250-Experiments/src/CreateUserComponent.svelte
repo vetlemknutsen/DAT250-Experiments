@@ -1,6 +1,6 @@
 <script>
     import { navigate } from 'svelte-routing';
-
+    import { usernameStore } from './store';
 
     let username = "";
     let success = false;
@@ -11,7 +11,7 @@
             username: username
         });
 
-        const url = `http://localhost:8080/v1/user/create?username=${params.toString()}`;
+        const url = `/v1/user/create?${params.toString()}`;
 
         const response = await fetch(url, {
             method: "POST",
@@ -23,6 +23,8 @@
 
         if (response.ok){
             success = true;
+
+            usernameStore.set(username);
             navigate("/polls");
         }
         else{

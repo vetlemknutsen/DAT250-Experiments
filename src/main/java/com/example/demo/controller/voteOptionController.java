@@ -57,26 +57,27 @@ public class voteOptionController {
         return ResponseEntity.ok("Vote option added");
     }
 
-    @GetMapping ("/get")
-    public VoteOption getVoteOption(@RequestParam int pollId, @RequestParam int presentationOrder){
-        List<VoteOption> options = null;
-        VoteOption voteOption = null;
-        for (List<Poll> polls : pollManager.getHashmap().values()){
-            for (Poll p : polls){
-                if (p.getId() == pollId){
-                    options = p.getOptions();
+
+    @GetMapping("/get")
+    public VoteOption getVoteOption(@RequestParam int pollId, @RequestParam int presentationOrder) {
+
+        for (List<Poll> polls : pollManager.getHashmap().values()) {
+            for (Poll p : polls) {
+                if (p.getId() == pollId) {
+
+                    List<VoteOption> options = p.getOptions();
+                    if (options != null) {
+                        for (VoteOption v : options) {
+                            if (v.getPresentationOrder() == presentationOrder) {
+                                return v;
+                            }
+                        }
+                    }
+                    return null;
                 }
             }
         }
-
-        assert options != null;
-        for (VoteOption v : options){
-            if (v.getPresentationOrder() == presentationOrder){
-                voteOption = v;
-            }
-        }
-        return voteOption;
-        
+        return null;
     }
 
 
