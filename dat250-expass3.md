@@ -27,7 +27,8 @@ I did some research about how to create components in Javascript and Svelte, and
 and [VoteComponent](https://github.com/vetlemknutsen/DAT250-Experiments/blob/main/DAT250-Experiments/src/VoteComponent.svelte). 
 They were going to handle poll creation, user creating and voting respectively.
 I started by just creating simple user interfaces which I could continue working on in later steps.
-The process was quite basic and resulted in simple div's. 
+The process was quite basic and resulted in simple div's. Currently, when you create a user, you just put a username. 
+This is just for simplicity, for future development, email and password could be added. 
 Then to connect the components, I used Router in [App.svelte](https://github.com/vetlemknutsen/DAT250-Experiments/blob/main/DAT250-Experiments/src/App.svelte), 
 which makes it possible to connect the components to paths, 
 like localhost:8080/create-poll.
@@ -58,6 +59,9 @@ ended up having many if's and #each's in the div section, which I don't think is
 <br>At last was [CreatePollComponent](https://github.com/vetlemknutsen/DAT250-Experiments/blob/main/DAT250-Experiments/src/CreatePollComponent.svelte), 
 which went alright. It was a bit tricky to build the body for the request to create a poll. 
 It was also difficult to have an option to add as many options as you want, but it worked in the end. 
+I would like to mention that there is a need for better error handling in many methods, but this was not
+a priority during this experiment. 
+
 
 ### Step 5
 I also encountered some problems here, as the instructions never mentioned that I had to 
