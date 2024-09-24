@@ -9,14 +9,16 @@ Added documents using MongoDB compass, like in the tutorial:
 ![](images/database.png)
 
 Inserted one document: 
+<br>
 ![](images/insertOne.png)
 
 Found the inserted document: 
+<br>
 ![](images/findInsert.png)
 
 ### Query documents
 Find documents by specifying AND conditions, OR conditions and both. 
-
+<br>
 ![](images/query.png)
 
 ### Update documents
@@ -25,16 +27,19 @@ Update first documents where item equals paper
 Update all documents where qty is less than 50
 <br>
 Replace the first document from the collection where item is paper.
+<br>
 ![](images/update.png)
 
 ### Delete documents
 Remove all documents where the status field equals "A"
 <br>
 Delete the first document where status is "D"
+<br>
 ![](images/delete.png)
 
 ### Bulk write 
 Run multiple operations 
+<br>
 ![](images/bulkwrite.png)
 
 
@@ -59,6 +64,8 @@ Also, it could show which customers shops the most.
 Installing MongoDB went okay, but without MongoDB compass I got a bit confused as to how to use it. 
 Also, encountered a problem during experiment 2, where I tried to do it in local as experiment 2, but that didn't work. 
 Changed to a new database. 
+
+Also, tried using the command "mongo", but found out i had to use mongosh
 
 
 
