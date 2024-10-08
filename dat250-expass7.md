@@ -25,3 +25,9 @@ For the runtime stage, I use Alpine JDK 22. Then I create a user and a group.
 In the end I run the application as the new user, while exposing port 8080, and starting the app.
 
 I use this multi-stage build to make the image slim and I create a non-root user which the app is run as.
+
+This is the repo where I made changes for the first part: 
+[Expass 4](https://github.com/vetlemknutsen/dat250-jpa-tutorial)
+
+## Issues
+Some issues because of different Java versions and such. Also a bit irritating that there were an error in the task description yet again.
