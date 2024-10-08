@@ -18,4 +18,10 @@ Then, the schemas was created and I copied the content of the schema.up.sql into
 
 ### Building your own dockerized application
 I used the temurin image to containerize my application. 
-The Dockerfile ended up like this: [Dockerfile]()
+The Dockerfile ended up like this: [Dockerfile](https://github.com/vetlemknutsen/DAT250-Experiments/blob/main/Dockerfile)
+
+In the builder stage I use JDK22 and set the working directory, then copy the gradle build files and source code. 
+For the runtime stage, I use Alpine JDK 22. Then I create a user and a group. 
+In the end I run the application as the new user, while exposing port 8080, and starting the app.
+
+I use this multi-stage build to make the image slim and I create a non-root user which the app is run as.
